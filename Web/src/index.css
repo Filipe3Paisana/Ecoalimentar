@@ -1,0 +1,233 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --primary-color: #b7dc18;
+  --secondary-color: #1a1a1a;
+  --text-color: #333;
+  --background-color: #fff;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --font-family: "Quicksand", sans-serif;
+  --transition-speed: 0.3s;
+  --hover-brightness: 1.1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  color: var(--text-color);
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--background-color);
+  box-shadow: 0 2px 5px var(--shadow-color);
+  z-index: 1000;
+  transition: background-color var(--transition-speed);
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Isso empurra o logo para a esquerda e o menu para a direita */
+  padding: 10px; 
+}
+
+.navbar a, .navbar h1 {
+  font-weight: 500;
+  color: var(--secondary-color);
+  text-decoration: none;
+  margin: 0 15px;
+  transition: color var(--transition-speed);
+}
+
+.navbar h1 {
+  color: var(--primary-color);
+  font-weight: 900;
+  margin-right: auto;
+}
+
+.navbar a:hover {
+  color: var(--primary-color);
+  transform: scale(1.05);
+}
+
+.content {
+  max-width: 600px;
+  margin: 120px auto 0; /* Adjusted to account for navbar */
+  padding: 20px;
+}
+
+.logo, .menu-icon {
+  width: 80px;
+  height: auto;
+  filter: drop-shadow(0px 0px 2px #fffffff2);
+  transition: transform var(--transition-speed), filter var(--transition-speed);
+}
+
+.logo {
+  margin-right: 10px;
+  margin-top: -18px;
+}
+
+.menu-icon:hover {
+  transform: scale(1.1);
+  filter: brightness(var(--hover-brightness));
+}
+
+.divider, .menu-divider {
+  display: inline-block;
+  background-color: var(--primary-color);
+  margin: 0 20px;
+  vertical-align: middle;
+}
+
+.divider {
+  height: 70px;
+  width: 2px;
+}
+
+.menu-divider {
+  height: 80px;
+  width: 2px;
+  background-color: var(--secondary-color);
+}
+
+.main-image {
+  width: 100%;
+  height: auto;
+  opacity: 0.5;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px var(--shadow-color);
+  transition: opacity var(--transition-speed);
+}
+
+.main-image:hover {
+  opacity: 0.7;
+}
+
+.image-container {
+  position: relative;
+  text-align: center; /* Updated for consistency */
+}
+
+.image-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--secondary-color);
+  font-size: 50px;
+}
+
+.home-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0;
+  background-color: var(--primary-color);
+  opacity: 0.8;
+}
+
+.menu-item {
+  text-align: center;
+}
+
+.menu-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+@media screen and (max-width: 768px) {
+  .navbar, .content, .home-container {
+    flex-direction: column;
+  }
+
+  .navbar a {
+    margin: 10px 0;
+  }
+
+  .divider, .menu-divider {
+    display: none;
+  }
+  .burger-menu {
+    display: none;
+    cursor: pointer;
+  }
+  
+  .burger-menu div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    margin: 5px 0;
+    transition: var(--transition-speed);
+  }
+  
+  .links.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .burger-menu {
+      display: block;
+    }
+  
+    .links {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    .links a {
+      padding: 10px;
+      text-align: center;
+      border-top: 1px solid var(--secondary-color);
+      width: 100%;
+    }
+  
+    .links.active {
+      display: flex;
+    }
+  }
+  .burger-menu {
+    display: none; /* Esconde por padrão e será mostrado via media query */
+    cursor: pointer;
+  }
+  
+  .burger-menu div {
+    width: 25px; /* Largura das linhas do hambúrguer */
+    height: 2px; /* Altura das linhas do hambúrguer */
+    background-color: #333; /* Cor das linhas do hambúrguer */
+    margin: 5px 0; /* Espaço entre as linhas do hambúrguer */
+    transition: 0.4s; /* Suavização da animação (opcional) */
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .burger-menu {
+      display: block; /* Mostra o menu hambúrguer em telas pequenas */
+    }
+  
+    .links {
+      display: none; /* Inicialmente escondido, será mostrado quando ativo */
+      flex-direction: column; /* Itens do menu em coluna */
+      position: absolute; /* Posicionamento do menu */
+      top: 100%; /* Abaixo do navbar */
+      right: 0;
+      background-color: white; /* Cor de fundo do menu expandido */
+      width: 100%; /* Largura do menu expandido */
+    }
+  
+    .links.active {
+      display: flex; /* Mostra o menu quando ativo */
+    }
+  }
+}
