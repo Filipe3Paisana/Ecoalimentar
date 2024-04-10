@@ -7,10 +7,10 @@ const app = express();
 const PORT = 4000;
 
 const pool = new Pool({
-  user: "Paisanabuils",
-  host: "localhost",
-  database: "DatabaseEco",
-  password: "P123",
+  user: process.env.DATABASE_USER || "Paisanabuils",
+  host: process.env.DATABASE_HOST || "db-1",
+  database: process.env.DATABASE_NAME || "DatabaseEco",
+  password: process.env.DATABASE_PASSWORD || "P123",
   port: 5432,
 });
 
