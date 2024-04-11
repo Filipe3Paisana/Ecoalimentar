@@ -3,11 +3,21 @@ const bodyParser = require("body-parser");
 const { Pool } = require("pg");
 const bcrypt = require("bcryptjs");
 const cors = require('cors');
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || ['http://localhost:80', 'http://localhost'].includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+};
 
 const app = express();
 const PORT = 4000;
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
+
 
 const pool = new Pool({
   user: process.env.DATABASE_USER || "Paisanabuils",
