@@ -21,7 +21,7 @@ const Navbar = () => {
         <Link to="/">Home</Link>
         <Link to="/consultoria">Consultoria</Link>
         <Link to="/auditoria">Auditoria</Link>
-        <Link to="/formacao">Formaçãao</Link>
+        <Link to="/formacao">Formação</Link>
         <Link to="/sobre">Sobre Nós</Link>
         <Link to="/contactos">Contactos</Link>
         <Link to="/registo">Registo</Link>
