@@ -2,9 +2,12 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const { Pool } = require("pg");
 const bcrypt = require("bcryptjs");
+const cors = require('cors');
 
 const app = express();
 const PORT = 4000;
+app.use(cors());
+app.use(bodyParser.json());
 
 const pool = new Pool({
   user: process.env.DATABASE_USER || "Paisanabuils",
@@ -15,7 +18,6 @@ const pool = new Pool({
 });
 
 
-app.use(bodyParser.json());
 
 app.get("/users", async (req, res) => {
   try {
@@ -38,7 +40,7 @@ app.post("/users", async (req, res) => {
       "INSERT INTO users (nome, email, password) VALUES ($1, $2, $3)",
       [nome, email, hashedPassword] 
     );
-    res.status(201).send("User criado com sucesso");
+    res.status(201).json({ message: "User criado com sucesso" });
   } catch (error) {
     if (error.constraint === "users_email_key") {
       res.status(400).json({ error: "O endereço de e-mail já está em uso" });

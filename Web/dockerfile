@@ -8,6 +8,8 @@ RUN npm run build
 
 # Fase de execução
 FROM nginx:alpine
+# Substitui o arquivo de configuração padrão do NGINX pelo arquivo personalizado
+# COPY mynginx.conf /etc/nginx/nginx.conf
 # Copia os arquivos estáticos do build React para o diretório do servidor Nginx
 COPY --from=build /usr/src/app/build /usr/share/nginx/html
 # Expõe a porta 80 para acesso HTTP
