@@ -3,7 +3,7 @@ import './index.css';
 
 function Registo() {
   // Estados para armazenar os valores dos inputs
-  const [name, setName] = useState('');
+  const [nome, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -11,7 +11,7 @@ function Registo() {
   function handleSubmit(e) {
       e.preventDefault();
       
-      const userData = { name, email, password };
+      const userData = { nome, email, password };
     
       fetch('http://localhost:4000/users', {
         method: 'POST',
@@ -30,11 +30,11 @@ function Registo() {
       <h1>Registo</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="name">Nome:</label>
+          <label htmlFor="nome">Nome:</label>
           <input
             type="text"
-            id="name"
-            value={name}
+            id="nome"
+            value={nome}
             onChange={(e) => setName(e.target.value)}
             required
           />
