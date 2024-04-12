@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Logo from './Logo';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,7 +10,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <a href="/">
-        <img src="logo.png" alt="Logo da Ecoalimentar" className="logo" />
+        <Logo />
       </a>
       <div className="burger-menu" onClick={toggleMenu}>
         <div></div>

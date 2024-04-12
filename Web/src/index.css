@@ -56,9 +56,9 @@ body, html {
 }
 
 .content {
-  max-width: 600px;
-  margin: 120px auto 0; /* Adjusted to account for navbar */
-  padding: 20px;
+  max-width: 75%;
+  margin: 70px auto 0; /* Adjusted to account for navbar */
+  padding: 10px;
 }
 
 .logo, .menu-icon {
@@ -192,4 +192,38 @@ body, html {
   .links.active {
     display: flex;
   }
+
+  /* Estilos globais para o footer */
+.footer {
+  padding: 50px 0; /* Adiciona padding uniformemente ao redor do conteúdo do footer */
+  background-color: #f8f9fa;
+  color: #6c757d;
+  border-top: 1px solid #e7e7e7;
+  margin-top: 50px; /* Espaço entre o conteúdo e o footer */
+}
+
+.footer .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-logo {
+  margin-bottom: 20px; /* Ajuste a margem inferior conforme necessário */
+}
+
+
+.text-muted {
+  color: #6c757d !important;
+}
+
+/* Ajuste responsivo para telas pequenas, mantendo os estilos essenciais */
+@media (max-width: 576px) {
+  .footer .container {
+    flex-direction: column; /* Empilha os elementos verticalmente */
+  }
+}
+
+
+
 }

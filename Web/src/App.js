@@ -9,6 +9,7 @@ import Contactos from "./Contactos";
 import Navbar from "./Navbar";
 import Registo from "./Registo";
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (

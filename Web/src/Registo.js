@@ -62,7 +62,6 @@ function Registo() {
 
   return (
     <Container component="main" maxWidth="xs">
-      <div className ="content">
         <CssBaseline />
         <Box sx={{ marginTop: 12, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <Typography component="h1" variant="h5">Registo</Typography>
@@ -107,7 +106,6 @@ function Registo() {
             </Button>
           </Box>
         </Box>
-      </div>
       <Snackbar
         open={openSnackbar}
         autoHideDuration={6000}
