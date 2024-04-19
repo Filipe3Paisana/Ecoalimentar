@@ -25,7 +25,7 @@ body, html {
 }
 
 .navbar {
-  position: fixed;
+  position: fixed !important;
   top: 0;
   width: 100%;
   padding: 10px 20px;
@@ -58,7 +58,7 @@ body, html {
 .content {
   max-width: 75%;
   margin: 70px auto 0; /* Adjusted to account for navbar */
-  padding: 10px;
+  padding: 50px;
 }
 
 .logo, .menu-icon {
@@ -155,22 +155,47 @@ body, html {
   transition: var(--transition-speed);
 }
 
-.links.active {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* Estilo para o contêiner do ícone de perfil */
+.profile-icon {
+  cursor: pointer;
+  display: inline-flex; /* Mantém o ícone em linha com os outros links */
+  align-items: center; /* Alinha verticalmente com os links */
+  margin-left: 20px; /* Espaço entre o ícone e o último link */
 }
 
-/* Responsividade */
+.profile-dropdown {
+  display: flex;
+  flex-direction: column; /* Disposição vertical dos links do dropdown */
+  position: absolute; /* Posicionamento absoluto */
+  top: 100%; /* Posiciona abaixo do ícone */
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  z-index: 1001;
+}
+
+.profile-dropdown a {
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+  display: block; /* Garante que os links sejam exibidos em linhas separadas */
+}
+
+.profile-dropdown a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Responsividade e Comportamento do Menu */
 @media (max-width: 768px) {
-  .navbar, .content, .home-container {
+  .navbar {
     flex-direction: column;
   }
-
+  
   .navbar a {
     margin: 10px 0;
   }
-
+  
   .divider, .menu-divider {
     display: none;
   }
@@ -179,27 +204,19 @@ body, html {
     display: block;
   }
   
-  .links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: white;
-    width: 100%;
-  }
-  
-  .links.active {
+  .links, .links.active {
     display: flex;
+    flex-direction: column;
+    align-items: center;
   }
+}
 
-  /* Estilos globais para o footer */
 .footer {
-  padding: 50px 0; /* Adiciona padding uniformemente ao redor do conteúdo do footer */
+  padding: 50px 0;
   background-color: #f8f9fa;
   color: #6c757d;
   border-top: 1px solid #e7e7e7;
-  margin-top: 50px; /* Espaço entre o conteúdo e o footer */
+  margin-top: 50px;
 }
 
 .footer .container {
@@ -209,21 +226,15 @@ body, html {
 }
 
 .footer-logo {
-  margin-bottom: 20px; /* Ajuste a margem inferior conforme necessário */
+  margin-bottom: 20px;
 }
-
 
 .text-muted {
   color: #6c757d !important;
 }
 
-/* Ajuste responsivo para telas pequenas, mantendo os estilos essenciais */
 @media (max-width: 576px) {
   .footer .container {
-    flex-direction: column; /* Empilha os elementos verticalmente */
+    flex-direction: column;
   }
-}
-
-
-
 }

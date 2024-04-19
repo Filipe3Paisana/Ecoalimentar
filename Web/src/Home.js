@@ -1,8 +1,11 @@
 import React from "react";
+import { Navbar } from "react-bootstrap";
+
 
 const Home = () => {
   return (
     <>
+
       <div className="image-container">
         <img src="main-img.png" alt="Imagem-main" className="main-image" />
         <div className="image-title">O Título Aqui</div> {/* Adicione o texto do título aqui */}

@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaUserCircle } from 'react-icons/fa'; // Importando o ícone de perfil
 import Logo from './Logo';
+import './index.css';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
   return (
     <nav className="navbar">
@@ -25,7 +29,21 @@ const Navbar = () => {
         <Link to="/formacao">Formação</Link>
         <Link to="/sobre">Sobre Nós</Link>
         <Link to="/contactos">Contactos</Link>
-        <Link to="/registo">Registo</Link>
+        <Link to="/resgito">Registo</Link>
+
+        <div className="profile-icon" onClick={toggleDropdown}>
+          <FaUserCircle size={20} />
+          {isDropdownOpen && (
+            <div className="profile-dropdown">
+              <Link to="/login">Login</Link>
+              <br />
+              <Link to="/registo">Registo</Link>
+              <br />
+              <Link to="/perfil">Perfil</Link>
+            </div>
+
+          )}
+        </div>
       </div>
     </nav>
   );

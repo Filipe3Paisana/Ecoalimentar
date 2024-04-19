@@ -8,25 +8,29 @@ import Sobre from "./Sobre";
 import Contactos from "./Contactos";
 import Navbar from "./Navbar";
 import Registo from "./Registo";
-import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/consultoria" element={<Consultoria />} />
-          <Route path="/auditoria" element={<Auditoria />} />
-          <Route path="/formacao" element={<Formacao />} />
-          <Route path="/sobre" element={<Sobre />} />
-          <Route path="/contactos" element={<Contactos />} />
-          <Route path="/registo" element={<Registo />} />
-        </Routes>
-      </Router>
-    </div>
+    <>
+      <div className="App">
+        <Router>
+          <div className="navbar">
+            <Navbar />
+          </div>
+          <Routes>
+            <Route path="/" element={<Home/>} />
+            <Route path="/consultoria" element={<Consultoria />} />
+            <Route path="/auditoria" element={<Auditoria />} />
+            <Route path="/formacao" element={<Formacao />} />
+            <Route path="/sobre" element={<Sobre />} />
+            <Route path="/contactos" element={<Contactos />} />
+            <Route path="/registo" element={<Registo />} />
+          </Routes>
+        </Router>
+      </div>
+    </>
   );
 }
 
