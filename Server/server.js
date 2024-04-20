@@ -26,6 +26,21 @@ const pool = new Pool({
   password: process.env.DATABASE_PASSWORD || "P123",
   port: 5432,
 });
+const createPostGISExtension = async () => {
+  try {
+      // Conectar ao banco de dados
+      const client = await pool.connect();
+      // Executar o comando SQL para criar a extensão PostGIS
+      await client.query('CREATE EXTENSION IF NOT EXISTS postgis;');
+      console.log("PostGIS extension created successfully!");
+      client.release(); // Liberar a conexão
+  } catch (err) {
+      console.error("Error creating PostGIS extension:", err);
+  }
+};
+
+// Chamar a função quando o servidor iniciar
+createPostGISExtension();
 
 
 
