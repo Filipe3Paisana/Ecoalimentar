@@ -161,6 +161,7 @@ body, html {
   display: inline-flex; /* Mantém o ícone em linha com os outros links */
   align-items: center; /* Alinha verticalmente com os links */
   margin-left: 20px; /* Espaço entre o ícone e o último link */
+  margin-right: 20px;
 }
 
 .profile-dropdown {
