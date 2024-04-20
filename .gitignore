@@ -1,0 +1,52 @@
+# Sistema Operacional e outros arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de configuração sensíveis
+*.env
+*.key
+*.cert
+
+# Arquivos temporários de editor
+*.swp
+*~
+*.sublime-workspace
+
+# Arquivos de Log
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Diretórios de dependências
+/node_modules/
+
+# Arquivos de build
+/Web/build/
+
+# Docker ignore (ajustar conforme necessário)
+*.dockerignore
+**/*.tar
+**/*.tar.gz
+
+# Arquivos e diretórios específicos de desenvolvimento local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pid
+*.seed
+
+# Arquivos de cache e ferramentas
+.cache
+/dist
+
+# Arquivos de mídia que não devem ser ignorados
+!/Web/public/*.png
+!/Web/public/*.jpg
+!/Web/public/*.gif
+!/Web/public/*.jpeg
+
+# Package locks (considerar incluir ou não baseado na necessidade de consistência)
+/Web/package-lock.json
+/Server/package-lock.json
