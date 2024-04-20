@@ -154,6 +154,7 @@ app.post("/register", async (req, res) => {
   }
 });
 
+
 app.listen(PORT, () => {
   console.log(`Servidor está a bombar em http://localhost:${PORT}/`);
 });
