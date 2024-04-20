@@ -16,70 +16,7 @@ function Consultoria() {
         <ul>
           <li>Consultoria empresarial</li>
           <li>Consultoria tecnológica</li>
-          <li>Consultoria de marketing</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
-          <li>Consultoria financeira</li>
+          <li>Consultoria de marketing</li>      
           <li>Consultoria financeira</li>
         </ul>
         <p>Entre em contato conosco para saber mais sobre como podemos ajudar o seu negócio a crescer e prosperar.</p>

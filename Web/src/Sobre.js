@@ -1,9 +1,12 @@
 import React from 'react';
+import Footer from './Footer';
 
 // Importe outros componentes ou estilos conforme necessário
 
 function ConsultoriaPage() {
+
   return (
+    <>
     <div className="content">
       <h1>Consultoria</h1>
       <p>Bem-vindo à nossa página de consultoria!</p>
@@ -20,6 +23,8 @@ function ConsultoriaPage() {
         Entre em contato conosco para saber mais sobre como podemos ajudar o seu negócio a crescer e prosperar.
       </p>
     </div>
+    <Footer />
+    </>
   );
 }
 

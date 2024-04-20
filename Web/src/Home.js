@@ -1,5 +1,6 @@
 import React from "react";
 import { Navbar } from "react-bootstrap";
+import Footer from "./Footer";
 
 
 const Home = () => {
@@ -40,6 +41,7 @@ const Home = () => {
           </a>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
