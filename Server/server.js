@@ -26,23 +26,6 @@ const pool = new Pool({
   password: process.env.DATABASE_PASSWORD || "P123",
   port: 5432,
 });
-const createPostGISExtension = async () => {
-  try {
-      // Conectar ao banco de dados
-      const client = await pool.connect();
-      // Executar o comando SQL para criar a extensão PostGIS
-      await client.query('CREATE EXTENSION IF NOT EXISTS postgis;');
-      console.log("PostGIS extension created successfully!");
-      client.release(); // Liberar a conexão
-  } catch (err) {
-      console.error("Error creating PostGIS extension:", err);
-  }
-};
-
-// Chamar a função quando o servidor iniciar
-//createPostGISExtension();
-
-
 
 app.get("/users", async (req, res) => {
   try {
@@ -75,8 +58,6 @@ app.post("/users", async (req, res) => {
     }
   }
 });
-
-
 
 app.get("/users/:id", async (req, res) => {
   const { id } = req.params;
@@ -151,6 +132,25 @@ app.post("/login", async (req, res) => {
   } catch (error) {
     console.error("Erro ao realizar login:", error);
     res.status(500).json({ error: "Erro interno do servidor" });
+  }
+});
+app.post("/register", async (req, res) => {
+  const { nome, email, password } = req.body;
+  const hashedPassword = await bcrypt.hash(password, 10);
+
+  try {
+    const result = await pool.query(
+      "INSERT INTO users (nome, email, password) VALUES ($1, $2, $3)",
+      [nome, email, hashedPassword]
+    );
+    res.status(201).json({ message: "Usuário criado com sucesso" });
+  } catch (error) {
+    if (error.constraint === "users_email_key") {
+      res.status(400).json({ error: "O endereço de e-mail já está em uso" });
+    } else {
+      console.error("Erro ao criar usuário:", error);
+      res.status(500).json({ error: "Erro interno do servidor" });
+    }
   }
 });
 

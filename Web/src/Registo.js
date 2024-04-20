@@ -17,7 +17,7 @@ function Registo() {
     e.preventDefault();
     const userData = { nome, email, password };
 
-    fetch('http://localhost:4000/users', {
+    fetch('http://localhost:4000/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
