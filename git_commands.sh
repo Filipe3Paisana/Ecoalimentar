@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # git_comands.sh
-# Uso1 : ./git_comands.sh nome-branch " Mensagem de commit" 
+# Uso1 : ./git_commands.sh nome-branch " Mensagem de commit" 
 # Se a branch e a mensagem de commit forem fornecidas, o Bloco A e o Bloco B serão executados.
-# Uso2 : ./git_comands.sh nome-branch
+# Uso2 : ./git_commands.sh nome-branch
 # Se apenas a branch for fornecida, o Bloco B será executado.
 
 BRANCH_NAME=$1
