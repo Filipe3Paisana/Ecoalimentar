@@ -29,7 +29,6 @@ const Navbar = () => {
         <Link to="/formacao">Formação</Link>
         <Link to="/sobre">Sobre Nós</Link>
         <Link to="/contactos">Contactos</Link>
-        <Link to="/resgito">Registo</Link>
 
         <div className="profile-icon" onClick={toggleDropdown}>
           <FaUserCircle size={20} />

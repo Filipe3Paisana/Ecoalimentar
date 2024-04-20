@@ -40,7 +40,7 @@ const createPostGISExtension = async () => {
 };
 
 // Chamar a função quando o servidor iniciar
-createPostGISExtension();
+//createPostGISExtension();
 
 
 
