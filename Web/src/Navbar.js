@@ -13,7 +13,7 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <a href="/">
+      <a href="/home">
         <Logo />
       </a>
       <div className="burger-menu" onClick={toggleMenu}>
@@ -23,7 +23,7 @@ const Navbar = () => {
       </div>
       
       <div className={`links ${isMenuOpen ? 'active' : ''}`}>
-        <Link to="/">Home</Link>
+        <Link to="/home">Home</Link>
         <Link to="/consultoria">Consultoria</Link>
         <Link to="/auditoria">Auditoria</Link>
         <Link to="/formacao">Formação</Link>
@@ -34,7 +34,7 @@ const Navbar = () => {
           <FaUserCircle size={20} />
           {isDropdownOpen && (
             <div className="profile-dropdown">
-              <Link to="/login">Login</Link>
+              <Link to="/Login">Login</Link>
               <br />
               <Link to="/registo">Registo</Link>
               <br />

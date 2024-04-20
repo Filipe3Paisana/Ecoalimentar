@@ -76,6 +76,8 @@ app.post("/users", async (req, res) => {
   }
 });
 
+
+
 app.get("/users/:id", async (req, res) => {
   const { id } = req.params;
   try {
@@ -90,6 +92,7 @@ app.get("/users/:id", async (req, res) => {
     res.status(500).json({ error: "Erro interno do servidor" });
   }
 });
+
 
 app.put("/users/:id", async (req, res) => {
   const { id } = req.params;
@@ -121,6 +124,32 @@ app.delete("/users/:id", async (req, res) => {
     }
   } catch (error) {
     console.error("Erro ao deletar usuário:", error);
+    res.status(500).json({ error: "Erro interno do servidor" });
+  }
+});
+
+app.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    
+    const result = await pool.query("SELECT * FROM users WHERE email = $1", [email]);
+
+    if (result.rows.length > 0) {
+      const user = result.rows[0];
+
+      const isValid = await bcrypt.compare(password, user.password);
+
+      if (isValid) {
+        res.status(200).json({ message: "Login bem-sucedido" });
+      } else {
+        res.status(401).json({ error: "Senha incorreta" });
+      }
+    } else {
+      res.status(404).json({ error: "Usuário não encontrado" });
+    }
+  } catch (error) {
+    console.error("Erro ao realizar login:", error);
     res.status(500).json({ error: "Erro interno do servidor" });
   }
 });
