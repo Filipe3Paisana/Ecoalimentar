@@ -22,7 +22,7 @@ yarn-error.log*
 /node_modules/
 
 # Arquivos de build
-/Web/build/
+#/Web/build/
 
 # Docker ignore (ajustar conforme necessário)
 *.dockerignore
