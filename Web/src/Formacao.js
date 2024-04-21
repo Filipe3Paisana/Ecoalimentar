@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Importar Link de react-router-dom
+import { Link } from 'react-router-dom';
 import Footer from './Footer';
+import './index.css'
 
-// Importe outros componentes ou estilos conforme necessário
-
-function ConsultoriaPage() {
+function Formacao() {
   return (
     <>
       <div className="content">
@@ -15,27 +14,43 @@ function ConsultoriaPage() {
           <li>Treinamentos de liderança e desenvolvimento de equipes</li>
           <li>Workshops de inovação e criatividade</li>
         </ul>
-        <div className="row">
-          <div className="col-md-2">
-            <div className="card">
-              <img src="logo.png" className="card-img-top" alt="Logotipo do curso" />
-              <div className="card-body">
-                <h5 className="card-title">Formação Exemplo</h5>
-                <p className="card-text">Este é um cartão mais largo com texto de apoio abaixo como uma introdução natural para conteúdo adicional. Este conteúdo é um pouco mais longo.</p>
-                <p className="card-text"><small className="text-secondary">A realizar em 2024</small></p>
+        <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel" style={{ maxWidth: '80%', height: 'auto', margin: 'auto' }}>
+          <div className="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div className="carousel-inner">
+            <div className="carousel-item active">
+              <img src="livros.jpeg" className="d-block w-100" alt="First slide image description"/>
+              <div className="carousel-caption d-none d-md-block">
+                <h2> Formação Exemplo </h2>
+                <p>Some representative placeholder content for the first slide.</p>
+              </div>
+            </div>
+            <div className="carousel-item">
+              <img src="livros.jpeg" className="d-block w-100" alt="Second slide image description"/>
+              <div className="carousel-caption d-none d-md-block">
+                <h3>Formação Exemplo 2</h3>
+                <p>Some representative placeholder content for the second slide.</p>
+              </div>
+            </div>
+            <div className="carousel-item">
+              <img src="livros.jpeg" className="d-block w-100" alt="Third slide image description"/>
+              <div className="carousel-caption d-none d-md-block">
+                <h4>Formação Exemplo 3</h4>
+                <p>Some representative placeholder content for the third slide.</p>
               </div>
             </div>
           </div>
-          <div className="col-md-2">
-            <div className="card">
-              <img src="logo.png" className="card-img-top" alt="Logotipo do curso" />
-              <div className="card-body">
-                <h5 className="card-title">Formacao Exemplo</h5>
-                <p className="card-text">Este é um cartão mais largo com texto de apoio abaixo como uma introdução natural para conteúdo adicional. Este conteúdo é um pouco mais longo.</p>
-                <p className="card-text"><small className="text-secondary">A realizar em 2025</small></p>
-              </div>
-            </div>
-          </div>
+          <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Next</span>
+          </button>
         </div>
       </div>
       <Footer />
@@ -43,4 +58,4 @@ function ConsultoriaPage() {
   );
 }
 
-export default ConsultoriaPage;
+export default Formacao;
