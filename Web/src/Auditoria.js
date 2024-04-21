@@ -1,30 +1,29 @@
 import React from 'react';
 import Footer from './Footer';
+import { Link } from 'react-router-dom'; // Adicione esta importação se estiver usando react-router
+import Button from '@mui/material/Button';
 
 // Importe outros componentes ou estilos conforme necessário
 
-function ConsultoriaPage() {
+function Auditoria() {
   return (
     <>
     <div className="content">
-      <h1>Consultoria</h1>
-      <p>Bem-vindo à nossa página de consultoria!</p>
-      <p>
-        Aqui, oferecemos consultoria especializada em várias áreas, incluindo, mas não limitado a:
-      </p>
+      <h1>Auditoria</h1>
+      <p>Aqui você encontrará informações sobre nossos serviços de auditoria.</p>
       <ul>
-        <li>Consultoria empresarial</li>
-        <li>Consultoria tecnológica</li>
-        <li>Consultoria de marketing</li>
-        <li>Consultoria financeira</li>
+        <li>Auditoria financeira</li>
+        <li>Auditoria de sistemas</li>
+        <li>Auditoria de processos</li>
       </ul>
-      <p>
-        Entre em contato conosco para saber mais sobre como podemos ajudar o seu negócio a crescer e prosperar.
-      </p>
+      <p>Entre em contato conosco para mais informações sobre nossos serviços de auditoria.</p>
+      <Button variant="contained" component={Link} to="/contactos">
+          Entrar em Contacto
+        </Button>
     </div>
     <Footer />
     </>
   );
 }
 
-export default ConsultoriaPage;
+export default Auditoria;

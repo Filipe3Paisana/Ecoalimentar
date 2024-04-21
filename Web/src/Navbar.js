@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaUserCircle } from 'react-icons/fa'; // Importando o ícone de perfil
+import { FaUserCircle } from 'react-icons/fa';
 import Logo from './Logo';
 import './index.css';
 
@@ -34,13 +34,13 @@ const Navbar = () => {
           <FaUserCircle size={20} />
           {isDropdownOpen && (
             <div className="profile-dropdown">
-              <Link to="/Login">Login</Link>
+              <Link to="/login">Login</Link>
               <br />
               <Link to="/registo">Registo</Link>
               <br />
               <Link to="/perfil">Perfil</Link>
             </div>
-
+            
           )}
         </div>
       </div>
