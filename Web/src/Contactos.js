@@ -3,32 +3,19 @@ import Footer from './Footer';
 
 // Importe outros componentes ou estilos conforme necessário
 
-function ConsultoriaPage() {
+function Contactos() {
   return (
     <>
     <div className="content">
       <h1>Contactos</h1>
       <p>Entre em contato conosco para mais informações sobre nossos serviços.</p>
-      <form>
-        <label>
-          Nome:
-          <input type="text" name="name" required />
-        </label>
-        <label>
-          Email:
-          <input type="email" name="email" required />
-        </label>
-
-        <label>
-          Mensagem:
-          <textarea name="message" required></textarea>
-        </label>
-          <button type="submit">Enviar</button>
-      </form>
+      <p>Telefone: +123 456 7890</p>
+      <p>Email: contato@empresa.com</p>
+      <p>Endereço: Rua Exemplo, 123 - Cidade, País</p>
     </div>
     <Footer />
     </>
   );
 }
 
-export default ConsultoriaPage;
+export default Contactos;
