@@ -19,13 +19,19 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 
+if (!process.env.DATABASE_USER || !process.env.DATABASE_HOST || !process.env.DATABASE_NAME || !process.env.DATABASE_PASSWORD) {
+  console.error('Missing database configuration environment variables');
+  process.exit(1); 
+}
+
 const pool = new Pool({
-  user: process.env.DATABASE_USER || "Paisanabuils",
-  host: process.env.DATABASE_HOST || "db-1",
-  database: process.env.DATABASE_NAME || "DatabaseEco",
-  password: process.env.DATABASE_PASSWORD || "P123",
-  port: 5432,
+  user: process.env.DATABASE_USER,
+  host: process.env.DATABASE_HOST,
+  database: process.env.DATABASE_NAME,
+  password: process.env.DATABASE_PASSWORD,
+  port: process.env.DATABASE_PORT || 5432,
 });
+
 
 app.get("/users", async (req, res) => {
   try {

@@ -50,3 +50,6 @@ yarn-error.log*
 # Package locks (considerar incluir ou não baseado na necessidade de consistência)
 /Web/package-lock.json
 /Server/package-lock.json
+
+#Infromações sobre a base de dados
+.env
