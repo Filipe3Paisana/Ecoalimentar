@@ -13,7 +13,7 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <a href="/home">
+      <a href="/">
         <Logo />
       </a>
       <div className="burger-menu" onClick={toggleMenu}>
@@ -23,7 +23,7 @@ const Navbar = () => {
       </div>
       
       <div className={`links ${isMenuOpen ? 'active' : ''}`}>
-        <Link to="/home">Home</Link>
+        <Link to="/">Home</Link>
         <Link to="/consultoria">Consultoria</Link>
         <Link to="/auditoria">Auditoria</Link>
         <Link to="/formacao">Formação</Link>

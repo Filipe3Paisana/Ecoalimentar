@@ -40,7 +40,7 @@ function Login() {
         setSnackbarSeverity('success');
         setOpenSnackbar(true);
 
-        navigate('/home'); // Redireciona para a home
+        navigate('/'); // Redireciona para a home
         
         })
         .catch(error => {
