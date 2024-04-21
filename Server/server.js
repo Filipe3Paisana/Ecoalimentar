@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const { Pool } = require("pg");
 const bcrypt = require("bcryptjs");
 const cors = require('cors');
+
 const corsOptions = {
   origin: function (origin, callback) {
     if (!origin || ['http://localhost:80', 'http://localhost'].includes(origin)) {
@@ -17,7 +18,6 @@ const app = express();
 const PORT = 4000;
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
-
 
 if (!process.env.DATABASE_USER || !process.env.DATABASE_HOST || !process.env.DATABASE_NAME || !process.env.DATABASE_PASSWORD) {
   console.error('Missing database configuration environment variables');
@@ -43,20 +43,19 @@ app.get("/users", async (req, res) => {
   }
 });
 
+
 app.post("/users", async (req, res) => {
-  const { nome, email, password } = req.body;
-  
-  // Encripta a palavra-passe
-  const hashedPassword = await bcrypt.hash(password, 10); // Salting e hashing com custo 10
+  const { user_name, user_email, user_password } = req.body;
+  const hashedPassword = await bcrypt.hash(user_password, 10);
 
   try {
     const result = await pool.query(
-      "INSERT INTO users (nome, email, password) VALUES ($1, $2, $3)",
-      [nome, email, hashedPassword] 
+      "INSERT INTO users (user_name, user_email, user_password_hash) VALUES ($1, $2, $3) RETURNING *",
+      [user_name, user_email, hashedPassword]
     );
-    res.status(201).json({ message: "User criado com sucesso" });
+    res.status(201).json(result.rows[0]);
   } catch (error) {
-    if (error.constraint === "users_email_key") {
+    if (error.constraint === "users_user_email_key") {
       res.status(400).json({ error: "O endereço de e-mail já está em uso" });
     } else {
       console.error("Erro ao criar usuário:", error);
@@ -65,10 +64,11 @@ app.post("/users", async (req, res) => {
   }
 });
 
-app.get("/users/:id", async (req, res) => {
-  const { id } = req.params;
+
+app.get("/users/:user_id", async (req, res) => {
+  const { user_id } = req.params;
   try {
-    const result = await pool.query("SELECT * FROM users WHERE id = $1", [id]);
+    const result = await pool.query("SELECT * FROM users WHERE user_id = $1", [user_id]);
     if (result.rowCount === 0) {
       res.status(404).send("Usuário não encontrado");
     } else {
@@ -81,13 +81,15 @@ app.get("/users/:id", async (req, res) => {
 });
 
 
-app.put("/users/:id", async (req, res) => {
-  const { id } = req.params;
-  const { nome, email, password } = req.body;
+app.put("/users/:user_id", async (req, res) => {
+  const { user_id } = req.params;
+  const { user_name, user_email, user_password } = req.body;
+  const hashedPassword = await bcrypt.hash(user_password, 10);
+
   try {
     const result = await pool.query(
-      "UPDATE users SET nome = $1, email = $2, password = $3 WHERE id = $4",
-      [nome, email, password, id]
+      "UPDATE users SET user_name = $1, user_email = $2, user_password_hash = $3 WHERE user_id = $4",
+      [user_name, user_email, hashedPassword, user_id]
     );
     if (result.rowCount === 0) {
       res.status(404).send("Usuário não encontrado");
@@ -100,14 +102,15 @@ app.put("/users/:id", async (req, res) => {
   }
 });
 
-app.delete("/users/:id", async (req, res) => {
-  const { id } = req.params;
+
+app.delete("/users/:user_id", async (req, res) => {
+  const { user_id } = req.params;
   try {
-    const result = await pool.query("DELETE FROM users WHERE id = $1", [id]);
+    const result = await pool.query("DELETE FROM users WHERE user_id = $1", [user_id]);
     if (result.rowCount === 0) {
-      res.status(404).send("User não encontrado");
+      res.status(404).send("Usuário não encontrado");
     } else {
-      res.status(200).send("User deletado com sucesso");
+      res.status(200).send("Usuário deletado com sucesso");
     }
   } catch (error) {
     console.error("Erro ao deletar usuário:", error);
@@ -115,18 +118,14 @@ app.delete("/users/:id", async (req, res) => {
   }
 });
 
+
 app.post("/login", async (req, res) => {
-  const { email, password } = req.body;
-
+  const { user_email, user_password } = req.body;
   try {
-    
-    const result = await pool.query("SELECT * FROM users WHERE email = $1", [email]);
-
+    const result = await pool.query("SELECT * FROM users WHERE user_email = $1", [user_email]);
     if (result.rows.length > 0) {
       const user = result.rows[0];
-
-      const isValid = await bcrypt.compare(password, user.password);
-
+      const isValid = await bcrypt.compare(user_password, user.user_password_hash);
       if (isValid) {
         res.status(200).json({ message: "Login bem-sucedido" });
       } else {
@@ -140,18 +139,19 @@ app.post("/login", async (req, res) => {
     res.status(500).json({ error: "Erro interno do servidor" });
   }
 });
+
 app.post("/register", async (req, res) => {
-  const { nome, email, password } = req.body;
-  const hashedPassword = await bcrypt.hash(password, 10);
+  const { user_name, user_email, user_password } = req.body;
+  const hashedPassword = await bcrypt.hash(user_password, 10);
 
   try {
     const result = await pool.query(
-      "INSERT INTO users (nome, email, password) VALUES ($1, $2, $3)",
-      [nome, email, hashedPassword]
+      "INSERT INTO users (user_name, user_email, user_password_hash) VALUES ($1, $2, $3) RETURNING *",
+      [user_name, user_email, hashedPassword]
     );
-    res.status(201).json({ message: "Usuário criado com sucesso" });
+    res.status(201).json(result.rows[0]);
   } catch (error) {
-    if (error.constraint === "users_email_key") {
+    if (error.constraint === "users_user_email_key") {
       res.status(400).json({ error: "O endereço de e-mail já está em uso" });
     } else {
       console.error("Erro ao criar usuário:", error);

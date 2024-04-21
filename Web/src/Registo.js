@@ -6,16 +6,16 @@ function TransitionLeft(props) {
 }
 
 function Registo() {
-  const [nome, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [userName, setUserName] = useState('');
+  const [userEmail, setUserEmail] = useState('');
+  const [userPassword, setUserPassword] = useState('');
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
   const [snackbarSeverity, setSnackbarSeverity] = useState('success');
 
   function handleSubmit(e) {
     e.preventDefault();
-    const userData = { nome, email, password };
+    const userData = {user_name: userName, user_email: userEmail, user_password: userPassword };
 
     fetch('http://localhost:4000/register', {
       method: 'POST',
@@ -28,9 +28,9 @@ function Registo() {
       if (response.ok) {
         return response.json();
       }
-      setName('');
-      setEmail('');
-      setPassword('');
+      setUserName('');
+      setUserEmail('');
+      setUserPassword('');
       throw new Error('Algo deu errado no registro!');
 
     })
@@ -40,9 +40,9 @@ function Registo() {
       setSnackbarSeverity('success');
       setOpenSnackbar(true);
       
-      setName('');
-      setEmail('');
-      setPassword('');
+      setUserName('');
+      setUserEmail('');
+      setUserPassword('');
     })
     .catch(error => {
       console.error('Erro ao registrar:', error);
@@ -75,8 +75,8 @@ function Registo() {
               name="nome"
               autoComplete="nome"
               autoFocus
-              value={nome}
-              onChange={(e) => setName(e.target.value)}
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
             />
             <TextField
               margin="normal"
@@ -86,8 +86,8 @@ function Registo() {
               label="Endereço de Email"
               name="email"
               autoComplete="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={userEmail}
+              onChange={(e) => setUserEmail(e.target.value)}
             />
             <TextField
               margin="normal"
@@ -98,8 +98,8 @@ function Registo() {
               type="password"
               id="password"
               autoComplete="current-password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={userPassword}
+              onChange={(e) => setUserPassword(e.target.value)}
             />
             <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
               Registar

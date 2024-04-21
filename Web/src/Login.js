@@ -8,15 +8,15 @@ function TransitionLeft(props) {
 
 function Login() {
     const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [userEmail, setUserEmail] = useState('');
+  const [userPassword, setUserPassword] = useState('');
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
   const [snackbarSeverity, setSnackbarSeverity] = useState('success');
     
     function handleSubmit(e) {
         e.preventDefault();
-        const userData = { email, password };
+        const userData = { user_email: userEmail, user_password: userPassword};
 
         fetch('http://localhost:4000/login', {
         method: 'POST',
@@ -29,8 +29,8 @@ function Login() {
         if (response.ok) {
             return response.json();
         }
-        setEmail('');
-        setPassword('');
+        setUserEmail('');
+        setUserPassword('');
         throw new Error('Algo deu errado no registro!');
 
         })
@@ -74,8 +74,8 @@ function Login() {
               name="email"
               autoComplete="email"
               autoFocus
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={userEmail}
+              onChange={(e) => setUserEmail(e.target.value)}
             />
             <TextField
               margin="normal"
@@ -86,8 +86,8 @@ function Login() {
               type="password"
               id="password"
               autoComplete="current-password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={userPassword}
+              onChange={(e) => setUserPassword(e.target.value)}
             />
             <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
               Login
