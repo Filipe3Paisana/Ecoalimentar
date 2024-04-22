@@ -187,7 +187,7 @@ body, html {
   background-color: #f0f0f0;
 }
 
-/* Responsividade e Comportamento do Menu */
+
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
@@ -205,11 +205,18 @@ body, html {
     display: block;
   }
   
-  .links, .links.active {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  @media (max-width: 768px) {
+    .links {
+      display: none;
+    }
+  
+    .links.active {
+      display: flex;
+      flex-direction: column; 
+      align-items: center; 
+    }
   }
+  
 }
 
 .footer {
