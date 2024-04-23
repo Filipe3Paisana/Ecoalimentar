@@ -3,7 +3,7 @@ import './index.css'
 import Footer from './Footer';
 import Button from '@mui/material/Button';
 
-function Formacao() {
+function DetalhesFormacao() {
   return (
     <>
     <div className="content">
@@ -11,9 +11,11 @@ function Formacao() {
         <p>Titulo</p>
         <p>Descrição</p>
     </div>
-    <button>
+    <Button variant="contained" color="primary">
         Inscrever-se
-    </button>
+    </Button>
     </>
   );
 }
+
+export default DetalhesFormacao;

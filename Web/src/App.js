@@ -4,6 +4,7 @@ import Home from "./Home";
 import Consultoria from "./Consultoria";
 import Auditoria from "./Auditoria";
 import Formacao from "./Formacao";
+import DetalhesFormacao from "./DetalhesFormacao";
 import Sobre from "./Sobre";
 import Contactos from "./Contactos";
 import Navbar from "./Navbar";
@@ -25,6 +26,7 @@ function App() {
             <Route path="/consultoria" element={<Consultoria />} />
             <Route path="/auditoria" element={<Auditoria />} />
             <Route path="/formacao" element={<Formacao />} />
+            <Route path="/detalhes" element={<DetalhesFormacao />} />
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/contactos" element={<Contactos />} />
             <Route path="/registo" element={<Registo />} />

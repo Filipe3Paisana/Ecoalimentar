@@ -53,9 +53,11 @@ function Formacao() {
             </button>
           </div>
       </div>
-      <Button>
-        saber mais
-      </Button>
+      <a href="/detalhes">
+        <Button variant="contained" color="primary">
+          saber mais
+        </Button>
+      </a>
       <Footer />
     </>
   );
