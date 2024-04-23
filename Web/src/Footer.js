@@ -35,7 +35,7 @@ function Footer() {
               <div className="footer-link">
                 <a href="https://www.linkedin.com/in/ecoalimentar-lda-55835294/" style={iconStyle} target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
                 <a href="https://www.facebook.com/people/Ecoalimentar-Lda/100057453318303/" style={iconStyle} target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
-                <a href="https://ecoalimentar.pt" style={iconStyle}><FaInstagram /></a>
+                <a href="https://ecoalimentar.pt" style={iconStyle} target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
               </div>
             </div>
           </Col>
