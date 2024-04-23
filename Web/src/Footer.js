@@ -29,13 +29,13 @@ function Footer() {
           </Col>
           <Col sm={4} className="logo.png">
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '20px'}}>
-            <Logo />
-            <br></br>
-            <br></br>
+              <Logo />
+              <br></br>
+              <br></br>
               <div className="footer-link">
-                  <a href="https://www.linkedin.com/in/ecoalimentar-lda-55835294/" style={iconStyle}><FaLinkedin /></a>
-                  <a href="https://www.facebook.com/people/Ecoalimentar-Lda/100057453318303/" style={iconStyle}><FaFacebookF /></a>
-                  <a href="https://ecoalimentar.pt" style={iconStyle}><FaInstagram /></a>
+                <a href="https://www.linkedin.com/in/ecoalimentar-lda-55835294/" style={iconStyle} target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+                <a href="https://www.facebook.com/people/Ecoalimentar-Lda/100057453318303/" style={iconStyle} target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
+                <a href="https://ecoalimentar.pt" style={iconStyle}><FaInstagram /></a>
               </div>
             </div>
           </Col>

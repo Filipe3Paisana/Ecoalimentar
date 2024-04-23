@@ -53,6 +53,9 @@ function Formacao() {
             </button>
           </div>
       </div>
+      <Button>
+        saber mais
+      </Button>
       <Footer />
     </>
   );
