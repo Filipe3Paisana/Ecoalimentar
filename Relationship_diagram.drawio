@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="Ib1UkcNoF1kIYEE3U7mb" name="Page-1">
-        <mxGraphModel dx="1349" dy="843" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1540" dy="742" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -102,30 +102,6 @@
                 </mxCell>
                 <mxCell id="111" value="Diagrma de Relação" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="351" y="390" width="120" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="112" value="" style="endArrow=classic;startArrow=classic;html=1;" parent="1" source="50" target="75" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="302" y="620" as="sourcePoint"/>
-                        <mxPoint x="352" y="570" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="113" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="69" target="75" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="442" y="660" as="sourcePoint"/>
-                        <mxPoint x="492" y="610" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="114" value="" style="endArrow=classic;startArrow=classic;html=1;" parent="1" source="60" target="69" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="202" y="810" as="sourcePoint"/>
-                        <mxPoint x="252" y="760" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="115" value="" style="endArrow=classic;startArrow=classic;html=1;" parent="1" source="69" target="65" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="552" y="810" as="sourcePoint"/>
-                        <mxPoint x="602" y="760" as="targetPoint"/>
-                    </mxGeometry>
                 </mxCell>
             </root>
         </mxGraphModel>
