@@ -3,12 +3,55 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {createTheme, ThemeProvider} from '@mui/material';
 
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#000000',
+    },
+    secondary: {
+      main: '#ffffff',
+    },
+    background: {
+      main: '#B7DC18',
+    }
+  },
+  typography: {
+    h1: {
+      fontFamily: ['Nunito'],
+      fontWeight: 700,
+      fontSize: '2.5rem',
+      lineHeight: 1.2,
+      padding: '20px 0',
+    },
+    h2: {
+      fontFamily: ['Nunito'],
+      fontWeight: 700,
+      fontSize: '2rem',
+      lineHeight: 1.2,
+    },
+    h3: {
+      fontFamily: ['Roboto'],
+      fontWeight: 300,
+      fontSize: '30px',
+      lineHeight: 1.2,
+    },
+    h4: {
+      fontFamily: ['Roboto'],
+      fontWeight: 200,
+      fontSize: '20px',
+      lineHeight: 1.2,
+    }
+  }
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <ThemeProvider theme={theme}>
     <App />
+    </ThemeProvider>
   </React.StrictMode>
 );
 
