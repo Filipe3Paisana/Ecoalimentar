@@ -2,8 +2,9 @@ import React from 'react';
 import './index.css';
 import './index.js';
 import Footer from './Footer';
-import { Card, CardMedia, Typography, CardContent, CardActionArea, Box, Container, Paper } from '@mui/material';
+import { Card, CardMedia, Typography, CardContent, CardActionArea, Box, Container, Paper, Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
+import {useNavigate} from'react-router-dom';
 
 const formations = [
   { id: 1, title: 'Nutrição', description: 'Aprenda tudo o que precisa sobre nutrição para ter uma vida mais saudável.', image: 'nutrition-image.jpeg' },
@@ -13,6 +14,16 @@ const formations = [
 ];
 
 function Formacao() {
+
+
+  const navigate = useNavigate();
+
+  // Modified to pass the entire formation object
+  const handleCardClick = (formation) => {
+    navigate(`/detalhes/${formation.id}`, { state: { formation } });
+  };
+
+
   return (
     <>
       <div className="content">
@@ -29,27 +40,31 @@ function Formacao() {
         </ul>
       </div>
       <div className="content">
-      <Box sx={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap' }}> {/* Flex container for cards */}
-        {formations.map((formation) => (
-          <Card key={formation.id} sx={{ maxWidth: 250, my: 2 }}>
-          <Link to={`/detalhes/${formation.id}`} state={{ formation }}>
-            <CardActionArea href="/detalhes">
+      <Grid container spacing={4} justifyContent="center">
+      {formations.map((formation) => (
+        <Grid item key={formation.id} xs={12} sm={6} md={4}>
+          <Card sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+            {/* Updated to call handleCardClick with the entire formation object */}
+            <CardActionArea onClick={() => handleCardClick(formation)}>
               <CardMedia
                 component="img"
-                height="200"
+                height="140"
                 image={formation.image}
                 alt={formation.title}
-                />
-              <CardContent height={matchMedia}>
-                <Typography variant="body2" color="text.primary" align='center' fontSize={20}>
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
                   {formation.title}
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  {formation.description}
                 </Typography>
               </CardContent>
             </CardActionArea>
-          </Link>
           </Card>
-        ))}
-      </Box>
+        </Grid>
+      ))}
+    </Grid>
 
 
       <Container>
