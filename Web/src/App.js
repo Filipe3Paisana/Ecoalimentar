@@ -9,6 +9,7 @@ import Sobre from "./Sobre";
 import Contactos from "./Contactos";
 import Navbar from "./Navbar";
 import Registo from "./Registo";
+import StripContainer from "./StripeContainer";
 import Login from "./Login";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
@@ -31,6 +32,7 @@ function App() {
             <Route path="/contactos" element={<Contactos />} />
             <Route path="/registo" element={<Registo />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/pagamento" element={<StripContainer/>} />
           </Routes>
         </Router>
       </div>
