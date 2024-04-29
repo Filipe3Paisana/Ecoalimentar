@@ -12,8 +12,7 @@ function ConsultoriaPage() {
       <br>
       </br>
       <h2>Missão</h2>
-      <p> missão da Ecoalimentar é prestar serviços de consultoria com valor acrescentado para os clientes e parceiros, nas áreas da Segurança Alimentar, Gestão da Qualidade, Higiene e Segurança no Trabalho, Gestão Ambiental, e Formação.
-Criar soluções para as empresas, desenvolvendo o seu potencial de negócio de forma simples, integrada, sustentável e direcionada para o futuro.</p>
+      <p> missão da Ecoalimentar é prestar serviços de consultoria com valor acrescentado para os clientes e parceiros, nas áreas da Segurança Alimentar, Gestão da Qualidade, Higiene e Segurança no Trabalho, Gestão Ambiental, e Formação. Criar soluções para as empresas, desenvolvendo o seu potencial de negócio de forma simples, integrada, sustentável e direcionada para o futuro.</p>
       <br></br>
       <h2>Visão</h2>
       <p> Ser uma empresa reconhecida internacionalmente pela sua capacidade de criar sistemas de gestão práticos, criativos e sustentáveis que espelhem a energia própria da identidade de cada empresa.</p>
