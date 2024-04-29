@@ -16,28 +16,35 @@ const Home = () => {
 
       <Grid container spacing={5} justifyContent="center" alignItems="center" sx={{ marginBottom: 4 }}>
         {["/consultoria", "/auditoria", "/formacao"].map((path, index) => (
-          <Grid item xs={12} sm={4} key={index}>
-            <ButtonBase 
-              component="a" 
-              href={path} 
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                width: '100%',
-                height: '100%', // Ensures each item stretches to fill the container
-                '&:hover': {
-                  backgroundColor: theme.palette.action.hover,
-                  transform: 'scale(1.05)'
-                }
-              }}
-            >
-              <img src={["work_logo.png", "auditoria.png", "search.png"][index]} alt={["Consultoria services icon", "Auditoria services icon", "Formação programs icon"][index]} style={{ maxWidth: '120px' }} />
-              <Typography variant="subtitle1">{["Consultoria", "Auditoria", "Formação"][index]}</Typography>
-            </ButtonBase>
-          </Grid>
+          <React.Fragment key={index}>
+            <Grid item xs={12} sm={4}>
+              <ButtonBase 
+                component="a" 
+                href={path} 
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '100%',
+                  height: '200px', // Increase the height of each button
+                  backgroundColor: theme.palette.background.paper, // Add background color
+                  color: theme.palette.text.primary, // Add text color
+                  '&:hover': {
+                    backgroundColor: theme.palette.action.hover,
+                    transform: 'scale(1.05)'
+                  }
+                }}
+              >
+                <img src={["work_logo.png", "auditoria.png", "search.png"][index]} alt={["Consultoria services icon", "Auditoria services icon", "Formação programs icon"][index]} style={{ maxWidth: '120px' }} />
+                <Typography variant="subtitle1">{["Consultoria", "Auditoria", "Formação"][index]}</Typography>
+              </ButtonBase>
+            </Grid>
+            {index < 2 && <Grid item><Divider sx={{ height: '200px', backgroundColor: 'black' }} orientation="vertical" /></Grid>}
+          </React.Fragment>
         ))}
       </Grid>
+
 
       <Box sx={{ marginTop: 4, padding: 3, backgroundColor: theme.palette.grey[200], textAlign: 'center', elevation: 3 }}>
         <Typography variant="h3" gutterBottom>Talk to Us</Typography>
