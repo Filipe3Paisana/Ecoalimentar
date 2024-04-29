@@ -3,8 +3,9 @@ import { Typography, Box, Grid, ButtonBase, Divider, TextField, Button, useTheme
 import Footer from "./Footer";
 
 const Home = () => {
+  
   const theme = useTheme();
-
+  
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Box sx={{ position: 'relative', textAlign: 'center', marginBottom: 4 }}>
@@ -32,15 +33,16 @@ const Home = () => {
                 }
               }}
             >
-              <img src={["work_logo.png", "auditoria.png", "search.png"][index]} alt={["Consultoria services icon", "Auditoria services icon", "Formação programs icon"][index]} style={{ maxWidth: '120px' }} />
+              <img src={["work_logo.png", "auditoria.png", "search.png"][index]} alt={["Consultoria services icon", "Auditoria services icon", "Formação programs icon"][index]} style={{ maxWidth: '120px', maxHeight: '120px' }} />
               <Typography variant="subtitle1">{["Consultoria", "Auditoria", "Formação"][index]}</Typography>
             </ButtonBase>
           </Grid>
         ))}
       </Grid>
-
+      
       <Box sx={{ marginTop: 4, padding: 3, backgroundColor: theme.palette.grey[200], textAlign: 'center', elevation: 3 }}>
-        <Typography variant="h3" gutterBottom>Talk to Us</Typography>
+      <div className="content">
+        <Typography variant="h2" sx={{padding: 5}} >Fale Connosco</Typography>
         <Box
           component="form"
           noValidate
@@ -61,13 +63,14 @@ const Home = () => {
           <br />
           <TextField id="email" label="Email" variant="outlined" />
           <br />
-          <TextField id="message" label="Message" variant="outlined" multiline rows={8}  />
+          <TextField id="message" label="Message" variant="outlined" multiline rows={16}  />
           <br />
           <br />
-          <Button variant="contained" color="primary">
+          <Button variant="contained" color="background" sx={{ width: '50%' }}>
             Send Message
           </Button>
         </Box>
+      </div>
       </Box>
 
       <Footer />
