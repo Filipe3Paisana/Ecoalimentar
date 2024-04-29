@@ -5,6 +5,7 @@ import Logo from './Logo';
 // Importe os ícones do pacote que preferir, aqui está um exemplo com react-icons
 import { AiOutlineMail, AiOutlineHome, AiOutlinePhone } from 'react-icons/ai';
 import { FaLinkedin, FaFacebookF, FaInstagram } from 'react-icons/fa';
+import { Link } from "react-router-dom";
 import './index.css'
 
 
@@ -19,14 +20,16 @@ function Footer() {
     <Card className="footer">
       <Card.Body>
         <Row>
-          <Col sm={4} className="footer-info">
-            {/* Outras informações da empresa podem ir aqui */}
-            <Card.Title>Ecoalimentar</Card.Title>
-            <Card.Text>
-              Informações adicionais sobre a empresa ou conteúdo relevante.
-            </Card.Text>
-            {/* Pode adicionar um botão se necessário */}
+          <Col sm={4} className="footer-contact" >
+            <Card.Title>Fale connosco</Card.Title>
+            {/* Adicione os detalhes de contato aqui */}
+            <div><AiOutlineHome /> Rua de Moscavide, loja 16a, Parque das Nações, 1990-162 Lisboa</div>
+            <br></br>
+            <div><AiOutlinePhone /> (+351) 211346352</div>
+            <br></br>
+            <div><AiOutlineMail /> geral@ecoalimentar.pt</div>
           </Col>
+
           <Col sm={4} className="logo.png">
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '20px'}}>
               <Logo />
@@ -39,14 +42,24 @@ function Footer() {
               </div>
             </div>
           </Col>
-          <Col sm={4} className="footer-contact">
-            <Card.Title>Fale connosco</Card.Title>
-            {/* Adicione os detalhes de contato aqui */}
-            <div><AiOutlineHome /> Rua de Moscavide, loja 16a, Parque das Nações, 1990-162 Lisboa</div>
-            <br></br>
-            <div><AiOutlinePhone /> (+351) 211346352</div>
-            <br></br>
-            <div><AiOutlineMail /> geral@ecoalimentar.pt</div>
+
+          <Col sm={4} className="footer-info">
+            {/* Outras informações da empresa podem ir aqui */}
+            <Card.Title>Quick Links</Card.Title>
+            <Card.Text>
+              <Link to="/">Home</Link>
+              <br></br>
+              <Link to="/consultoria">Consultoria</Link>
+              <br></br>
+              <Link to="/auditoria">Auditoria</Link>
+              <br></br>
+              <Link to="/formacao">Formação</Link>
+              <br></br>
+              <Link to="/sobre">Sobre</Link>
+              <br></br>
+              <Link to="/contactos">Contactos</Link>
+            </Card.Text>
+            {/* Pode adicionar um botão se necessário */}
           </Col>
         </Row>
       </Card.Body>
