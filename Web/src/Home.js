@@ -1,47 +1,77 @@
 import React from "react";
+import { Typography, Box, Grid, ButtonBase, Divider, TextField, Button, useTheme } from "@mui/material";
 import Footer from "./Footer";
 
-
 const Home = () => {
+  const theme = useTheme();
+
   return (
-    <>
+    <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ position: 'relative', textAlign: 'center', marginBottom: 4 }}>
+        <img src="main-img.png" alt="Main view of ecoalimentar offerings" style={{ width: '100%', maxHeight: '500px', objectFit: 'cover' }} />
+        <Typography variant="h2" component="div" sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', color: 'white', fontWeight: 'bold' }}>
+          O Título Aqui
+        </Typography>
+      </Box>
 
-      <div className="image-container">
-        <img src="main-img.png" alt="Imagem-main" className="main-image" />
-        <div className="image-title">O Título Aqui</div> {/* Adicione o texto do título aqui */}
-      </div>
+      <Grid container spacing={5} justifyContent="center" alignItems="center" sx={{ marginBottom: 4 }}>
+        {["/consultoria", "/auditoria", "/formacao"].map((path, index) => (
+          <Grid item xs={12} sm={4} key={index}>
+            <ButtonBase 
+              component="a" 
+              href={path} 
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                width: '100%',
+                height: '100%', // Ensures each item stretches to fill the container
+                '&:hover': {
+                  backgroundColor: theme.palette.action.hover,
+                  transform: 'scale(1.05)'
+                }
+              }}
+            >
+              <img src={["work_logo.png", "auditoria.png", "search.png"][index]} alt={["Consultoria services icon", "Auditoria services icon", "Formação programs icon"][index]} style={{ maxWidth: '120px' }} />
+              <Typography variant="subtitle1">{["Consultoria", "Auditoria", "Formação"][index]}</Typography>
+            </ButtonBase>
+          </Grid>
+        ))}
+      </Grid>
 
-      <div className="home-container">
-        <div className="menu-item">
-          <div className="menu-title">Consultoria</div>
-          <a href="/consultoria">
-            <br></br>
-            <img src="work_logo.png" alt="Ícone 1" className="menu-icon" />
-          </a>
-        </div>
-        
-        <div className="menu-divider"></div>
-        
-        <div className="menu-item">
-          <div className="menu-title">Formação</div>
-          <a href="/formacao">
-            <br></br>
-            <img src="search.png" alt="Ícone 2" className="menu-icon" />
-          </a>
-        </div>
-        
-        <div className="menu-divider"></div>
-        
-        <div className="menu-item">
-          <div className="menu-title">Auditoria</div>
-          <a href="/auditoria">
-            <br></br>
-            <img src="auditoria.png" alt="Ícone 3" className="menu-icon" />
-          </a>
-        </div>
-      </div>
+      <Box sx={{ marginTop: 4, padding: 3, backgroundColor: theme.palette.grey[200], textAlign: 'center', elevation: 3 }}>
+        <Typography variant="h3" gutterBottom>Talk to Us</Typography>
+        <Box
+          component="form"
+          noValidate
+          autoComplete="off"
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            '& > *': {
+              margin: theme.spacing(2),
+              width: '70%', // Adjust width as necessary
+              bgcolor: 'background.paper', // Sets the background color to white
+              padding: '15px 20px', // Reasonable padding for better visual balance
+            }
+          }}
+        >
+          <TextField id="name" label="Name" variant="outlined" />
+          <br />
+          <TextField id="email" label="Email" variant="outlined" />
+          <br />
+          <TextField id="message" label="Message" variant="outlined" multiline rows={8}  />
+          <br />
+          <br />
+          <Button variant="contained" color="primary">
+            Send Message
+          </Button>
+        </Box>
+      </Box>
+
       <Footer />
-    </>
+    </Box>
   );
 };
 
