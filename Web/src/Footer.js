@@ -1,68 +1,65 @@
 import React from 'react';
-import { Card, Row, Col } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Card, CardContent, Grid, Typography, Link as MuiLink } from '@mui/material';
+import { styled } from '@mui/system';
 import Logo from './Logo';
-// Importe os ícones do pacote que preferir, aqui está um exemplo com react-icons
-import { AiOutlineMail, AiOutlineHome, AiOutlinePhone } from 'react-icons/ai';
-import { FaLinkedin, FaFacebookF, FaInstagram } from 'react-icons/fa';
+// Import icons from @mui/icons-material
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import PhoneOutlinedIcon from '@mui/icons-material/PhoneOutlined';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
 import { Link } from "react-router-dom";
-import './index.css'
 
+// Create a styled Link component for icon links
+const IconLink = styled(MuiLink)({
+  margin: '0 10px', // Adjust spacing as needed
+  fontSize: '1.5em', // Increase icon size
+});
 
 function Footer() {
-
-    const iconStyle = {
-        fontSize: '1.5em', // Aumenta o tamanho do ícone
-        margin: '0 10px' // Adiciona margem horizontal entre os ícones
-      };
-
   return (
-    <Card className="footer">
-      <Card.Body>
-        <Row>
-          <Col sm={4} className="footer-contact" >
-            <Card.Title>Fale connosco</Card.Title>
-            {/* Adicione os detalhes de contato aqui */}
-            <div><AiOutlineHome /> Rua de Moscavide, loja 16a, Parque das Nações, 1990-162 Lisboa</div>
-            <br></br>
-            <div><AiOutlinePhone /> (+351) 211346352</div>
-            <br></br>
-            <div><AiOutlineMail /> geral@ecoalimentar.pt</div>
-          </Col>
-
-          <Col sm={4} className="logo.png">
-            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '20px'}}>
-              <Logo />
-              <br></br>
-              <br></br>
-              <div className="footer-link">
-                <a href="https://www.linkedin.com/in/ecoalimentar-lda-55835294/" style={iconStyle} target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
-                <a href="https://www.facebook.com/people/Ecoalimentar-Lda/100057453318303/" style={iconStyle} target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
-                <a href="https://ecoalimentar.pt" style={iconStyle} target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-              </div>
-            </div>
-          </Col>
-
-          <Col sm={4} className="footer-info">
-            {/* Outras informações da empresa podem ir aqui */}
-            <Card.Title>Quick Links</Card.Title>
-            <Card.Text>
+    <Card className="footer" sx={{ mt: 4 }}>
+      <CardContent>
+        <Grid container spacing={2}>
+          <Grid item sm={4}>
+            <Typography variant="h6">Fale connosco</Typography>
+            <Typography><MailOutlineIcon /> geral@ecoalimentar.pt</Typography>
+            <Typography><PhoneOutlinedIcon /> (+351) 211346352</Typography>
+            <Typography><HomeOutlinedIcon /> Rua de Moscavide, loja 16a, Parque das Nações, 1990-162 Lisboa</Typography>
+          </Grid>
+          <Grid item sm={4} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mb: 2 }}>
+            <Logo />
+            <Grid container justifyContent="center">
+              <IconLink href="https://www.linkedin.com/in/ecoalimentar-lda-55835294/" target="_blank" rel="noopener noreferrer">
+                <LinkedInIcon />
+              </IconLink>
+              <IconLink href="https://www.facebook.com/people/Ecoalimentar-Lda/100057453318303/" target="_blank" rel="noopener noreferrer">
+                <FacebookIcon />
+              </IconLink>
+              <IconLink href="https://ecoalimentar.pt" target="_blank" rel="noopener noreferrer">
+                <InstagramIcon />
+              </IconLink>
+            </Grid>
+          </Grid>
+          <Grid item sm={4}>
+            <Typography variant="h6">Quick Links</Typography>
+            <Typography component="div">
               <Link to="/">Home</Link>
-              <br></br>
+              <br />
               <Link to="/consultoria">Consultoria</Link>
-              <br></br>
+              <br />
               <Link to="/auditoria">Auditoria</Link>
-              <br></br>
+              <br />
               <Link to="/formacao">Formação</Link>
-              <br></br>
+              <br />
               <Link to="/sobre">Sobre</Link>
-              <br></br>
+              <br />
               <Link to="/contactos">Contactos</Link>
-            </Card.Text>
-            {/* Pode adicionar um botão se necessário */}
-          </Col>
-        </Row>
-      </Card.Body>
+            </Typography>
+          </Grid>
+        </Grid>
+      </CardContent>
     </Card>
   );
 }
